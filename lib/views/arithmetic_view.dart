@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:second_app/models/arithmetic_model.dart';
 // 1. stateless -> josko state change hunna
 // 2. stateful -> jasko state change hunna sakcha
 
@@ -18,6 +19,7 @@ class _ArithmeticViewState extends State<ArithmeticView> {
   int first = 0;
   int second = 0;
   int result = 0;
+  late ArithmeticModel arithmeticModel;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,7 +55,11 @@ class _ArithmeticViewState extends State<ArithmeticView> {
                 onPressed: () {
                   // Simple state management OR Page lai refresh gara
                   setState(() {
-                    result = first + second;
+                    arithmeticModel = ArithmeticModel(
+                      first: first,
+                      second: second,
+                    );
+                    result = arithmeticModel.add();
                   });
                 },
                 child: Text("Add"),
