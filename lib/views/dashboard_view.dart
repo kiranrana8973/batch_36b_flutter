@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:second_app/views/arithmetic_view.dart';
+import 'package:second_app/views/si_view.dart';
 
 // navigator : source -> destination
 // named route
@@ -25,7 +26,12 @@ class DashboardView extends StatelessWidget {
             ),
             ElevatedButton(onPressed: () {}, child: Text('Area Of Circle ')),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SiView()),
+                );
+              },
               child: Text('Simple Interest View'),
             ),
           ],
